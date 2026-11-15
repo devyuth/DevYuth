@@ -1,0 +1,82 @@
+
+.trust-section {
+  width: 100%;
+  padding: 60px 0;
+  overflow: hidden;
+  background: #ffffff;
+  color: #111827;
+}
+
+.trust-slider {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.trust-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: trust-scroll 35s linear infinite;
+}
+
+.trust-slider:hover .trust-track {
+  animation-play-state: paused;
+}
+
+.trust-company {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 32px;
+  flex-shrink: 0;
+}
+
+.trust-logo {
+  width: auto;
+  height: 40px;
+  max-width: 120px;
+  object-fit: contain;
+}
+
+.trust-company span {
+  font-size: 16px;
+  font-weight: 600;
+  white-space: nowrap;
+  color: #374151;
+}
+
+@keyframes trust-scroll {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .trust-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 16px;
+  }
+
+  .trust-stats h2 {
+    font-size: 26px;
+  }
+
+  .trust-section {
+    padding: 40px 0;
+  }
+
+  .trust-company {
+    padding: 0 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trust-track {
+    animation: none;
+  }
+}
