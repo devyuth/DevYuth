@@ -21,7 +21,7 @@ export default function ContactPage() {
 
     // Set page title and meta description dynamically on the client side
     useEffect(() => {
-        document.title = "Contact Us";
+        document.title = "Contact us for Website and Software Development";
 
         let metaDesc = document.querySelector('meta[name="description"]');
         if (!metaDesc) {

@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./layout/Navbar";
 import Footer from "./layout/Footer";
+import type { Metadata } from "next";
 
 import { Manrope, Caveat } from "next/font/google";
 
@@ -15,6 +16,44 @@ const caveat = Caveat({
   variable: "--font-caveat",
 });
 
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://www.devyuth.in"),
+
+  title: {
+    default: "Devyuth | Website Design & Development Agency",
+    template: "%s | Devyuth",
+  },
+
+  description:
+    "Professional website design, custom web development, and ready-made website solutions by Devyuth.",
+
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    siteName: "Devyuth",
+    title: "Devyuth | Website Design & Development Agency",
+    description:
+      "Professional website design and development solutions for businesses.",
+    url: "https://www.devyuth.in",
+    images: [
+      {
+        url: "/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Devyuth Website Design and Development",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Devyuth | Website Design & Development Agency",
+    description:
+      "Professional website design and development solutions.",
+    images: ["/project2.png"],
+  },
+};
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

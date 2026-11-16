@@ -7,7 +7,7 @@ import ServicesHero from "../components/services/ServicesHero";
 
 
 export const metadata = {
-  title: "Web Development Services | DevYuth",
+  title: "Website and Software Development Services",
 
   description:
     "Explore professional web development, mobile app development, UI/UX design, AI automation, cloud infrastructure, and data analytics services. Build scalable digital solutions with our expert team.",

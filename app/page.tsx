@@ -13,7 +13,7 @@ import { ArrowRight } from "lucide-react";
 
 
 export const metadata = {
-  title: 'Web Development, Software & Digital Skills | DevYuth',
+  title: 'DevYuth | Custom Website and Software Development ',
   description:
     'Grow your business with professional web development, custom software solutions, digital services, and practical skill training. Hire experienced experts or start learning today.',
   keywords: [
@@ -29,7 +29,7 @@ export const metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'Web Development & Digital Solutions | Your Brand',
+    title: 'Web Development & Digital Solutions | DevYuth',
     description:
       'Professional web development, custom software, digital solutions and skill training to help businesses grow.',
     url: '/',
