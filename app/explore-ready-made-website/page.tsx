@@ -48,7 +48,7 @@ export const metadata: Metadata = {
 
 const ReadyWebsite = () => {
   return (
-    <div>
+    <div className="">
       <TemplateGallery />
     </div>
   );

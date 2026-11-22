@@ -39,7 +39,7 @@ export default function TemplateGallery() {
     <section
       id="templates"
       className="bg-[#fbfaf7] px-5 py-16 
-      text-[#27251f] sm:px-8 sm:py-40 lg:px-16"
+      text-[#27251f] sm:px-8 sm:py-40 lg:px-16 pt-30"
     >
       <div className="mx-auto max-w-[1440px]">
         {/* Editorial Heading */}

@@ -151,10 +151,9 @@ const Navbar = () => {
                                 aria-controls="mobile-navigation"
                                 className="
                                     flex h-11 w-11 items-center justify-center
-                                    rounded-full bg-white/20
-                                    text-white backdrop-blur-md
+                                    rounded-full bg-white
+                                    text-black shadow-xl backdrop-blur-md
                                     transition-colors
-                                    hover:bg-white/30
                                 "
                             >
                                 <MenuIcon className="h-6 w-6" />
