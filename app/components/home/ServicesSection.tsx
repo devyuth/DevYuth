@@ -1,6 +1,7 @@
 "use client";
-
+import '../../styles/services.components.css'
 import { useState } from "react";
+import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import {
     ArrowDownRight,
@@ -175,7 +176,8 @@ const services: Service[] = [
     },
 ];
 
-const WHATSAPP_NUMBER = "917003996182"; // Replace with your WhatsApp number
+const WHATSAPP_NUMBER = "917003996182";
+const FEATURED_COUNT = 3;
 const ease = [0.22, 1, 0.36, 1] as const;
 
 export default function ServicesSection() {
@@ -185,6 +187,7 @@ export default function ServicesSection() {
     const selectedService =
         services.find((service) => service.id === selectedId) ?? null;
 
+    const featuredServices = services.slice(0, FEATURED_COUNT);
     const duration = reduceMotion ? 0 : 0.55;
 
     function getWhatsAppUrl(service: Service) {
@@ -210,102 +213,122 @@ export default function ServicesSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.3 }}
                     transition={{ duration: 0.7, ease }}
-                    className="mb-16 grid gap-8 md:mb-24 md:grid-cols-[1fr_300px] md:items-end"
+                    className="mb-14 grid gap-6 md:mb-20 md:grid-cols-[1fr_340px] md:items-end"
                 >
                     <div>
-                        <h2 className="max-w-4xl text-[clamp(1.5rem,3vw,2.5rem)] font-semibold leading-[0.98] tracking-tight">
+                        <span className="mb-4 block text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-400">
+                            Capabilities
+                        </span>
+                        <h2 className="max-w-3xl text-[clamp(2rem,4vw,3.5rem)] font-semibold leading-[0.98] tracking-tight services-home-title">
                             Digital products,
                             <br />
                             <span className="text-slate-400">built properly.</span>
                         </h2>
                     </div>
+                    <p className="text-sm leading-relaxed text-slate-500">
+                        Select any capability below to inspect deliverables, tech stack, and typical timelines.
+                    </p>
                 </motion.div>
 
                 <AnimatePresence mode="wait" initial={false}>
                     {!selectedService ? (
-                        /* SERVICE CARDS GRID DISPLAY (No Borders/Outlines) */
+                        /* EDITORIAL INDEX ROWS */
                         <motion.div
-                            key="service-grid"
+                            key="service-list"
                             initial={reduceMotion ? false : { opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0, y: -8 }}
                             transition={{ duration: duration * 0.65 }}
                         >
+                            <div className="border-t border-slate-200">
+                                {featuredServices.map((service, index) => (
+                                    <motion.div
+                                        key={service.id}
+                                        initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true, amount: 0.2 }}
+                                        transition={{ duration: 0.35, delay: index * 0.05, ease }}
+                                        onClick={() => setSelectedId(service.id)}
+                                        role="button"
+                                        tabIndex={0}
+                                        onKeyDown={(e) => {
+                                            if (e.key === "Enter" || e.key === " ") {
+                                                e.preventDefault();
+                                                setSelectedId(service.id);
+                                            }
+                                        }}
+                                        className="group relative grid cursor-pointer grid-cols-1 gap-4 border-b border-slate-200 py-8 transition-colors duration-300 hover:bg-slate-50/70 sm:px-4 md:grid-cols-[72px_1.1fr_1.4fr_auto] md:items-center md:gap-8 md:py-10"
+                                    >
+                                        {/* Index Number */}
+                                        <span className="font-mono text-xs font-medium tracking-wider text-slate-400 transition-colors group-hover:text-slate-900">
+                                            /{service.number}
+                                        </span>
 
-                            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                                {services.map((service, index) => {
-                                    const Icon = service.icon;
-                                    return (
-                                        <motion.div
-                                            key={service.id}
-                                            initial={reduceMotion ? false : { opacity: 0, y: 20 }}
-                                            whileInView={{ opacity: 1, y: 0 }}
-                                            viewport={{ once: true, amount: 0.2 }}
-                                            transition={{ duration: 0.4, delay: index * 0.05 }}
-                                            onClick={() => setSelectedId(service.id)}
-                                            className="group relative flex flex-col justify-between 
-                                            rounded-2xl bg-slate-50/60 p-8 transition-all duration-300 
-                                            hover:-translate-y-1 hover:bg-slate-100/80 cursor-pointer shadow-none"
-                                        >
-                                            <div>
-                                                <div className="flex items-center justify-between">
-                                                    <span className="flex h-12 w-12 items-center justify-center 
-                                                    rounded-xl bg-white text-slate-900 shadow-md transition-colors 
-                                                    group-hover:bg-slate-900 group-hover:text-white">
-                                                        <Icon size={22} strokeWidth={1.75} />
-                                                    </span>
-                                                    <span className="text-xs font-semibold text-slate-400">
-                                                        {service.number}
-                                                    </span>
-                                                </div>
+                                        {/* Title */}
+                                        <h3 className="text-2xl font-semibold tracking-tight text-slate-900 transition-transform duration-300 group-hover:translate-x-1 sm:text-[1.75rem]">
+                                            {service.title}
+                                        </h3>
 
-                                                <h3 className="mt-6 text-xl font-semibold text-slate-900">
-                                                    {service.title}
-                                                </h3>
-                                                <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                                                    {service.short}
-                                                </p>
-                                            </div>
+                                        {/* Concise Description */}
+                                        <p className="max-w-md text-sm leading-relaxed text-slate-500 transition-colors group-hover:text-slate-700">
+                                            {service.short}
+                                        </p>
 
-                                            <div className="mt-8 pt-6 border-t border-slate-200/60 flex 
-                                            items-center justify-between text-xs font-medium text-slate-500">
-                                                <span>{service.timeline}</span>
-                                                <span className="flex items-center gap-1 font-semibold text-slate-900">
-                                                    View scope
-                                                    <ArrowUpRight
-                                                        size={15}
-                                                        className="transition-transform 
-                                                        group-hover:translate-x-0.5 
-                                                        group-hover:-translate-y-0.5"
-                                                    />
-                                                </span>
-                                            </div>
-                                        </motion.div>
-                                    );
-                                })}
+                                        {/* Timeline + Minimal Action */}
+                                        <div className="mt-2 flex items-center justify-between gap-6 md:mt-0 md:justify-end">
+                                            <span className="text-xs font-medium text-slate-400">
+                                                {service.timeline}
+                                            </span>
+                                            <span className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-900 transition-all duration-300 group-hover:border-slate-900 group-hover:bg-slate-900 group-hover:text-white">
+                                                <ArrowUpRight
+                                                    size={16}
+                                                    strokeWidth={1.75}
+                                                    className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                                                />
+                                            </span>
+                                        </div>
+                                    </motion.div>
+                                ))}
+                            </div>
+
+                            {/* View More Link -> /services */}
+                            <div className="mt-10 flex items-center justify-between">
+                                <span className="text-xs text-slate-400">
+                                    Core capabilities — 01 to 0{FEATURED_COUNT}
+                                </span>
+
+                                <Link
+                                    href="/services"
+                                    className="group inline-flex items-center gap-2 border-b border-slate-900 pb-1 text-xs font-semibold uppercase tracking-[0.14em] text-slate-900 transition-opacity hover:opacity-70"
+                                >
+                                    <span>View all services</span>
+                                    <ArrowRight
+                                        size={14}
+                                        strokeWidth={2}
+                                        className="transition-transform duration-300 group-hover:translate-x-1"
+                                    />
+                                </Link>
                             </div>
                         </motion.div>
                     ) : (
-                        /* SERVICE DETAIL SPLIT VIEW (No Borders/Outlines) */
+                        /* SERVICE DETAIL SPLIT VIEW */
                         <motion.div
                             key="service-detail"
                             initial={reduceMotion ? false : { opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -8 }}
                             transition={{ duration: duration * 0.7, ease }}
-                            className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20 items-start"
+                            className="grid items-start gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20"
                         >
                             {/* Left Column: Story & Specs */}
                             <div className="flex flex-col">
                                 <button
                                     type="button"
                                     onClick={() => setSelectedId(null)}
-                                    className="mb-12 flex w-fit items-center gap-2 
-                                    text-xs font-semibold text-slate-600 
-                                    transition-colors hover:text-slate-900 sm:mb-16"
+                                    className="mb-12 flex w-fit items-center gap-2 text-xs font-semibold text-slate-600 transition-colors hover:text-slate-900 sm:mb-16"
                                 >
                                     <ArrowLeft size={15} />
-                                    Back to all services
+                                    Back to services
                                 </button>
 
                                 <AnimatePresence mode="wait" initial={false}>
@@ -317,24 +340,20 @@ export default function ServicesSection() {
                                         transition={{ duration: duration * 0.6, ease }}
                                     >
                                         <div className="mb-4 flex items-center gap-3">
-                                            <span className="flex h-9 w-9 items-center justify-center 
-                                            rounded-lg bg-slate-100 text-slate-900">
+                                            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-100 text-slate-900">
                                                 <selectedService.icon size={18} strokeWidth={1.75} />
                                             </span>
-                                            <span className="text-xs tabular-nums font-semibold 
-                                            tracking-wider text-slate-400">
+                                            <span className="text-xs font-semibold tabular-nums tracking-wider text-slate-400">
                                                 SERVICE / {selectedService.number}
                                             </span>
                                         </div>
 
-                                        <h3 className="max-w-xl text-[clamp(2.4rem,4.5vw,4.2rem)] 
-                                        font-semibold leading-[1.02] tracking-tight">
+                                        <h3 className="max-w-xl text-[clamp(2.4rem,4.5vw,4.2rem)] font-semibold leading-[1.02] tracking-tight">
                                             {selectedService.title}
                                             <span className="text-slate-400">.</span>
                                         </h3>
 
-                                        <p className="mt-6 max-w-md text-base 
-                                        leading-7 text-slate-600">
+                                        <p className="mt-6 max-w-md text-base leading-7 text-slate-600">
                                             {selectedService.description}
                                         </p>
 
@@ -355,14 +374,12 @@ export default function ServicesSection() {
                                             ].map((item) => (
                                                 <div
                                                     key={item.label}
-                                                    className="grid grid-cols-[120px_1fr] gap-4 border-b 
-                                                    border-slate-200 py-4 sm:grid-cols-[140px_1fr]"
+                                                    className="grid grid-cols-[120px_1fr] gap-4 border-b border-slate-200 py-4 sm:grid-cols-[140px_1fr]"
                                                 >
                                                     <span className="text-xs text-slate-400">
                                                         {item.label}
                                                     </span>
-                                                    <span className="text-sm font-medium 
-                                                    leading-6 text-slate-900">
+                                                    <span className="text-sm font-medium leading-6 text-slate-900">
                                                         {item.value}
                                                     </span>
                                                 </div>
@@ -381,8 +398,7 @@ export default function ServicesSection() {
                                     delay: reduceMotion ? 0 : 0.08,
                                     ease,
                                 }}
-                                className="flex min-w-0 flex-col rounded-3xl 
-                                bg-slate-50/80 p-6 sm:p-8"
+                                className="flex min-w-0 flex-col rounded-3xl bg-slate-50/80 p-6 sm:p-8"
                             >
                                 <AnimatePresence mode="wait" initial={false}>
                                     <motion.div
@@ -393,8 +409,7 @@ export default function ServicesSection() {
                                         transition={{ duration: duration * 0.6, ease }}
                                         className="flex h-full flex-col"
                                     >
-                                        <div className="relative mb-8 aspect-[16/10] 
-                                        overflow-hidden rounded-2xl bg-slate-200">
+                                        <div className="relative mb-8 aspect-[16/10] overflow-hidden rounded-2xl bg-slate-200">
                                             <motion.img
                                                 initial={reduceMotion ? false : { scale: 1.035 }}
                                                 animate={{ scale: 1 }}
@@ -406,35 +421,29 @@ export default function ServicesSection() {
 
                                             <div className="absolute inset-0 bg-slate-900/[0.03]" />
 
-                                            <div className="absolute bottom-3 left-3 flex items-center 
-                                            gap-2 rounded-lg bg-white px-3 py-1.5 text-[10px] 
-                                            font-semibold uppercase tracking-[0.12em] shadow-sm">
+                                            <div className="absolute bottom-3 left-3 flex items-center gap-2 rounded-lg bg-white px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] shadow-sm">
                                                 <selectedService.icon size={14} strokeWidth={1.75} />
                                                 {selectedService.number} / 06
                                             </div>
                                         </div>
 
                                         <div className="border-b border-slate-200/80 pb-6">
-                                            <span className="text-[10px] font-semibold 
-                                            uppercase tracking-[0.18em] text-slate-400">
+                                            <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-400">
                                                 The scope
                                             </span>
 
-                                            <h4 className="mt-2 text-2xl font-semibold 
-                                            tracking-tight sm:text-3xl">
+                                            <h4 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
                                                 What we deliver.
                                             </h4>
 
-                                            <p className="mt-2 max-w-lg text-sm 
-                                            leading-relaxed text-slate-600">
+                                            <p className="mt-2 max-w-lg text-sm leading-relaxed text-slate-600">
                                                 {selectedService.deliverables}
                                             </p>
                                         </div>
 
                                         <div className="grid gap-8 py-6 sm:grid-cols-2">
                                             <div>
-                                                <h5 className="mb-4 text-xs font-semibold 
-                                                uppercase tracking-[0.12em] text-slate-900">
+                                                <h5 className="mb-4 text-xs font-semibold uppercase tracking-[0.12em] text-slate-900">
                                                     Included features
                                                 </h5>
 
@@ -442,8 +451,7 @@ export default function ServicesSection() {
                                                     {selectedService.features.map((feature) => (
                                                         <li
                                                             key={feature}
-                                                            className="flex items-start gap-2.5 text-sm 
-                                                            leading-relaxed text-slate-600"
+                                                            className="flex items-start gap-2.5 text-sm leading-relaxed text-slate-600"
                                                         >
                                                             <Check
                                                                 size={16}
@@ -457,8 +465,7 @@ export default function ServicesSection() {
                                             </div>
 
                                             <div>
-                                                <h5 className="mb-4 text-xs font-semibold uppercase 
-                                                tracking-[0.12em] text-slate-900">
+                                                <h5 className="mb-4 text-xs font-semibold uppercase tracking-[0.12em] text-slate-900">
                                                     Tools & tech stack
                                                 </h5>
 
@@ -466,8 +473,7 @@ export default function ServicesSection() {
                                                     {selectedService.technologies.map((tech) => (
                                                         <li
                                                             key={tech}
-                                                            className="border-b border-slate-200/60 
-                                                            pb-2.5 text-sm font-medium text-slate-700"
+                                                            className="border-b border-slate-200/60 pb-2.5 text-sm font-medium text-slate-700"
                                                         >
                                                             {tech}
                                                         </li>
@@ -477,15 +483,11 @@ export default function ServicesSection() {
                                         </div>
 
                                         <div className="mt-6 border-t border-slate-200/80 pt-6">
-                                            {/* Green WhatsApp Action Button */}
                                             <a
                                                 href={getWhatsAppUrl(selectedService)}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="group flex min-h-14 items-center justify-between 
-                                                gap-4 rounded-xl bg-emerald-600 px-5 py-4 text-sm font-semibold 
-                                                text-white transition-colors duration-300 
-                                                hover:bg-emerald-700 sm:px-6 shadow-sm"
+                                                className="group flex min-h-14 items-center justify-between gap-4 rounded-xl bg-emerald-600 px-5 py-4 text-sm font-semibold text-white shadow-sm transition-colors duration-300 hover:bg-emerald-700 sm:px-6"
                                             >
                                                 <span>Discuss your project on WhatsApp</span>
                                                 <span className="flex items-center gap-3">
@@ -494,8 +496,7 @@ export default function ServicesSection() {
                                                     </span>
                                                     <ArrowRight
                                                         size={17}
-                                                        className="transition-transform 
-                                                        duration-300 group-hover:translate-x-1"
+                                                        className="transition-transform duration-300 group-hover:translate-x-1"
                                                     />
                                                 </span>
                                             </a>
@@ -503,28 +504,28 @@ export default function ServicesSection() {
                                             <button
                                                 type="button"
                                                 onClick={() => {
-                                                    const currentIndex = services.findIndex(
+                                                    const currentIndex = featuredServices.findIndex(
                                                         (service) => service.id === selectedService.id
                                                     );
                                                     const nextService =
-                                                        services[(currentIndex + 1) % services.length];
+                                                        featuredServices[
+                                                            (currentIndex + 1) % featuredServices.length
+                                                        ];
 
                                                     setSelectedId(nextService.id);
                                                 }}
-                                                className="mt-6 flex w-full items-center justify-between 
-                                                border-t border-slate-200/60 pt-4 text-left text-xs 
-                                                font-medium text-slate-500 transition-colors hover:text-slate-900"
+                                                className="mt-6 flex w-full items-center justify-between border-t border-slate-200/60 pt-4 text-left text-xs font-medium text-slate-500 transition-colors hover:text-slate-900"
                                             >
                                                 <span>Next service</span>
                                                 <span className="flex items-center gap-2">
                                                     {
-                                                        services[
-                                                            (services.findIndex(
+                                                        featuredServices[
+                                                            (featuredServices.findIndex(
                                                                 (service) =>
                                                                     service.id === selectedService.id
                                                             ) +
                                                                 1) %
-                                                            services.length
+                                                            featuredServices.length
                                                         ].title
                                                     }
                                                     <ArrowDownRight size={15} />
@@ -542,12 +543,10 @@ export default function ServicesSection() {
                 <div className="mt-20 border-t border-slate-200 pt-8 sm:mt-28 sm:pt-10">
                     <div className="grid gap-6 sm:grid-cols-[1fr_auto] sm:items-end">
                         <div>
-                            <span className="text-[10px] font-semibold uppercase 
-                            tracking-[0.18em] text-slate-400">
+                            <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-400">
                                 Have a project in mind?
                             </span>
-                            <p className="mt-3 text-3xl font-semibold 
-                            tracking-tight sm:text-4xl">
+                            <p className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl ctaWhatsapp">
                                 Let&apos;s make it useful.
                             </p>
                         </div>
@@ -558,16 +557,12 @@ export default function ServicesSection() {
                             )}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group flex w-fit items-center gap-4 
-                            rounded-xl bg-emerald-600 px-6 py-3.5 text-sm 
-                            font-semibold text-white transition-colors 
-                            hover:bg-emerald-700 shadow-sm"
+                            className="group flex w-fit items-center gap-4 rounded-xl bg-emerald-600 px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-emerald-700"
                         >
                             Start a conversation on WhatsApp
                             <ArrowUpRight
                                 size={17}
-                                className="transition-transform duration-300 
-                                group-hover:translate-x-1 group-hover:-translate-y-1"
+                                className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
                             />
                         </a>
                     </div>

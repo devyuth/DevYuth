@@ -11,44 +11,46 @@ import {
 } from "lucide-react";
 
 export default function IndustriesSection() {
+
     const industries = [
         {
             icon: Target,
-            title: "Strategy Before Code",
+            title: "Business-First Development",
             description:
-                "We understand your business goals, identify the right opportunities, and create a clear roadmap before development begins.",
+                "We understand your business goals, target audience, and project requirements to build digital solutions that solve real problems and deliver practical value.",
         },
         {
             icon: Layers3,
-            title: "Seamless Integrations",
+            title: "Seamless API & System Integration",
             description:
-                "Connect your website, applications, APIs, and business tools into one efficient digital ecosystem.",
+                "Connect websites, web applications, APIs, payment gateways, and third-party tools to create a connected and efficient digital ecosystem.",
         },
         {
             icon: TrendingUp,
-            title: "Built to Scale",
+            title: "Scalable Website & Software Solutions",
             description:
-                "Scalable architecture and maintainable code help your digital products grow alongside your business.",
+                "We build responsive websites and scalable software with maintainable architecture, making it easier to expand features as your business grows.",
         },
         {
             icon: ShieldCheck,
-            title: "Security & Reliability",
+            title: "Secure & Reliable Development",
             description:
-                "We prioritize secure development, reliable systems, and performance to build digital products you can depend on.",
+                "We follow security-conscious development practices, reliable coding standards, and thorough testing to build dependable digital products.",
         },
         {
             icon: Workflow,
-            title: "Smarter Automation",
+            title: "Business Process Automation",
             description:
-                "Reduce repetitive tasks, streamline workflows, and improve operational efficiency with intelligent automation.",
+                "Automate repetitive tasks, connect business tools, and streamline everyday workflows with custom software and intelligent integrations.",
         },
         {
             icon: CheckCircle2,
-            title: "Continuous Improvement",
+            title: "Ongoing Website & Software Support",
             description:
-                "From launch to future upgrades, we help your digital products evolve with changing customer needs and business goals.",
+                "Keep your digital products updated and running smoothly with technical support, bug fixes, maintenance, and continuous improvements.",
         },
     ];
+
 
     return (
         <section className="bg-gradient-to-br from-black via-sky-900 to-green-950 text-zinc-100">
@@ -59,19 +61,13 @@ export default function IndustriesSection() {
                     {/* Left Sticky Side */}
                     <div className="lg:sticky lg:top-32 h-fit py-24">
 
-                        <span className="uppercase tracking-[0.3em] text-zinc-200 text-sm">
-                            Industries
-                        </span>
-
-                        <h2 className="mt-6 text-5xl md:text-7xl leading-[0.9] font-serif ">
-                            More Than
+                        <h2 className="mt-6 text-4xl md:text-5xl leading-[0.9] font-serif ">
+                            Digital Solutions
                             <br />
-                            Just Code.
-                            <br />
-                            Real Impact.
+                            for Different Industries.
                         </h2>
 
-                        <p className="mt-8 text-zinc-300 text-lg max-w-md font-serif">
+                        <p className="mt-8 text-zinc-400 text-md max-w-md font-serif">
                             From startups to enterprises, we create
                             digital products tailored for the unique
                             challenges of every industry.
@@ -79,7 +75,7 @@ export default function IndustriesSection() {
 
                         <div className="mt-12 flex items-center gap-3">
                             <div className="w-16 h-[2px] bg-white" />
-                            <span className="text-zinc-300">
+                            <span className="text-zinc-200">
                                 Scroll to explore
                             </span>
                         </div>

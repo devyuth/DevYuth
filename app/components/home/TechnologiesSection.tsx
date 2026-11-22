@@ -190,7 +190,7 @@ export default function TechnologiesSection() {
         <header className="tech-header">       
 
           <h2 className="tech-heading">
-            The Technologies
+            Modern Technologies We Use to Build Digital Products
             <span>&amp; Tools</span>
           </h2>
         </header>

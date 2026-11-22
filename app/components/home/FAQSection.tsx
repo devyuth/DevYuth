@@ -1,50 +1,52 @@
-
 "use client";
 
+import '../../styles/why.components.css'
 import { useState } from "react";
+
 
 const faqs = [
     {
-        question: "What services do you offer?",
+        question: "What website and software development services does DevYuth offer?",
         answer:
-            "We offer custom website development, software development, web applications, UI/UX design, and SEO-friendly digital solutions to help businesses grow online.",
+            "DevYuth provides professional website design and development, custom software development, web application development, e-commerce development, UI/UX design, and website maintenance services. We build digital solutions tailored to your business goals and requirements.",
     },
     {
-        question: "What technologies do you use?",
+        question: "What technologies do you use for website development?",
         answer:
-            "We work with modern technologies like Next.js, React.js, Tailwind CSS, TypeScript, and other powerful tools to build fast, secure, and scalable digital products.",
+            "We use modern web development technologies such as Next.js, React, TypeScript, Tailwind CSS, Node.js, and reliable database systems. We select the right technology stack based on your project's performance, functionality, security, and scalability requirements.",
     },
     {
-        question: "How much does a website cost?",
+        question: "How much does it cost to develop a website?",
         answer:
-            "The cost depends on your project requirements, design complexity, and functionality. Contact us with your ideas, and we'll provide a tailored quote that fits your budget.",
+            "Website development costs depend on your design requirements, number of pages, features, integrations, and project complexity. Contact DevYuth with your requirements to receive a customized website development quote that suits your business needs and budget.",
     },
     {
         question: "How long does it take to build a website?",
         answer:
-            "A standard business website generally takes 1–3 weeks. More complex websites and custom software applications may require additional development time.",
+            "A standard business website typically takes 1–3 weeks, depending on its size, functionality, and content readiness. E-commerce websites, custom web applications, and complex software projects may require additional development time.",
     },
     {
-        question: "Will my website be SEO-friendly?",
+        question: "Will my website be mobile-friendly and SEO-friendly?",
         answer:
-            "Yes! We follow modern SEO practices, including optimized metadata, semantic HTML, fast loading speeds, mobile responsiveness, structured data, and clean website architecture.",
+            "Yes. We build responsive, SEO-friendly websites with mobile-optimized layouts, semantic HTML, optimized metadata, clean URL structures, and performance-focused development. These practices help search engines understand your website and provide visitors with a better browsing experience.",
     },
     {
-        question: "Can you redesign my existing website?",
+        question: "Can DevYuth redesign or improve my existing website?",
         answer:
-            "Absolutely. We can transform your existing website with a fresh design, improved performance, modern technologies, and a better user experience.",
+            "Yes. We provide website redesign and improvement services to modernize your existing website, improve its user experience, optimize loading performance, enhance mobile responsiveness, and update its overall design and functionality.",
     },
     {
-        question: "Do you provide ongoing maintenance?",
+        question: "Do you provide website maintenance and ongoing support?",
         answer:
-            "Yes. We provide ongoing support, bug fixes, security updates, performance improvements, and website maintenance to keep your digital products running smoothly.",
+            "Yes. DevYuth provides website maintenance and technical support, including bug fixes, software updates, security improvements, performance optimization, and ongoing assistance to help keep your website running smoothly.",
     },
     {
-        question: "How do I start a project with you?",
+        question: "Does DevYuth work with international clients, and how can I start a project?",
         answer:
-            "Simply reach out through our contact page and share your project idea. We'll discuss your goals, requirements, timeline, and the best approach to bring your vision to life.",
+            "Yes. Based in India, DevYuth works with businesses, startups, and entrepreneurs worldwide. To start a website or software development project, contact us through our website or WhatsApp and share your requirements. We'll discuss your goals, project scope, estimated timeline, and the right development approach.",
     },
 ];
+
 
 export default function FAQSection() {
     const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -65,7 +67,7 @@ export default function FAQSection() {
                             Got Questions?
                         </span>
 
-                        <h2 className="mt-7 text-4xl font-bold leading-[1.15] tracking-tight text-gray-950 sm:text-5xl lg:text-6xl">
+                        <h2 className="mt-7 text-4xl font-bold leading-[1.15] tracking-tight text-gray-950 sm:text-5xl lg:text-6xl Georgia">
                             Everything you need to{" "}
                             <span className="text-blue-600">
                                 know.
@@ -105,8 +107,8 @@ export default function FAQSection() {
                                 <div
                                     key={index}
                                     className={`group rounded-2xl border transition-all duration-300 ${isOpen
-                                            ? "border-blue-200 bg-blue-50/40 shadow-sm"
-                                            : "border-gray-200 bg-white hover:border-gray-300 hover:shadow-sm"
+                                        ? "border-blue-200 bg-blue-50/40 shadow-sm"
+                                        : "border-gray-200 bg-white hover:border-gray-300 hover:shadow-sm"
                                         }`}
                                 >
                                     <button
@@ -128,8 +130,8 @@ export default function FAQSection() {
 
                                             <h3
                                                 className={`text-base font-semibold leading-7 transition-colors sm:text-lg ${isOpen
-                                                        ? "text-blue-700"
-                                                        : "text-gray-900 group-hover:text-blue-600"
+                                                    ? "text-blue-700"
+                                                    : "text-gray-900 group-hover:text-blue-600"
                                                     }`}
                                             >
                                                 {faq.question}
@@ -138,8 +140,8 @@ export default function FAQSection() {
 
                                         <span
                                             className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-all duration-300 ${isOpen
-                                                    ? "rotate-45 bg-blue-600 text-white"
-                                                    : "bg-gray-100 text-gray-600 group-hover:bg-blue-50 group-hover:text-blue-600"
+                                                ? "rotate-45 bg-blue-600 text-white"
+                                                : "bg-gray-100 text-gray-600 group-hover:bg-blue-50 group-hover:text-blue-600"
                                                 }`}
                                         >
                                             <svg
@@ -161,8 +163,8 @@ export default function FAQSection() {
                                     <div
                                         id={`faq-answer-${index}`}
                                         className={`grid transition-[grid-template-rows,opacity] duration-300 ease-in-out ${isOpen
-                                                ? "grid-rows-[1fr] opacity-100"
-                                                : "grid-rows-[0fr] opacity-0"
+                                            ? "grid-rows-[1fr] opacity-100"
+                                            : "grid-rows-[0fr] opacity-0"
                                             }`}
                                         aria-hidden={!isOpen}
                                     >

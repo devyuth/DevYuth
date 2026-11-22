@@ -101,13 +101,12 @@ export default function ServicesHero(): React.JSX.Element {
                 {/* Category Pill / Badge */}
                 <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#EAEAD7] border border-[#0F382C]/15 text-[#0F382C] text-xs sm:text-sm font-medium mb-6 shadow-xs">
                     <HiSparkles className="text-base text-[#000000]" />
-                    <span>Our Impact Services</span>
+                    <span>BUILT FOR BUSINESS GROWTH</span>
                 </div>
 
                 {/* Main Headline */}
-                <h1 className="text-3xl sm:text-5xl md:text-6xl font-serif font-bold leading-tight tracking-tight text-[#000000]">
-                    Our Services: Impact that <br className="hidden sm:inline" />
-                    Can Change Your Business
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold leading-tight tracking-tight text-[#000000]">
+                    Our Services: Digital Solutions That Make a Difference
                 </h1>
 
                 {/* Contact CTA Button */}

@@ -7,68 +7,96 @@ import TechnologiesSection from './components/home/TechnologiesSection';
 import Testimonials from './components/home/Testimonials';
 import TrustSection from './components/home/TrustSection';
 import WhyUs from './components/home/WhyUsSection';
-import styles from './page.module.css';
+import './page.module.css';
 import { ArrowRight } from "lucide-react";
+import type { Metadata } from "next";
 
 
 
-export const metadata = {
-  title: 'DevYuth | Custom Website and Software Development ',
-  description:
-    'Grow your business with professional web development, custom software solutions, digital services, and practical skill training. Hire experienced experts or start learning today.',
-  keywords: [
-    'web development services',
-    'custom software development',
-    'website design',
-    'digital solutions',
-    'professional web developers',
-    'online skill training',
-    'business growth solutions',
-  ],
-  alternates: {
-    canonical: '/',
+const siteUrl = "https://www.devyuth.in";
+
+export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+
+  title: {
+    default: "Website & Software Development Company | DevYuth",
+    template: "%s | DevYuth",
   },
+
+  description:
+    "DevYuth provides professional website development, custom software development, web applications, e-commerce solutions, and UI/UX design to help businesses grow.",
+
+  keywords: [
+    "DevYuth",
+    "website development company",
+    "web development services",
+    "website design services",
+    "custom website development",
+    "software development company",
+    "custom software development",
+    "web application development",
+    "ecommerce website development",
+    "UI UX design services",
+    "business website development",
+    "responsive website development",
+    "professional web developers",
+    "digital solutions",
+  ],
+
+  applicationName: "DevYuth",
+  authors: [{ name: "DevYuth" }],
+  creator: "DevYuth",
+  publisher: "DevYuth",
+
+  alternates: {
+    canonical: "/",
+  },
+
   openGraph: {
-    title: 'Web Development & Digital Solutions | DevYuth',
+    type: "website",
+    url: siteUrl,
+    siteName: "DevYuth",
+    locale: "en_IN",
+    title: "Website & Software Development Company | DevYuth",
     description:
-      'Professional web development, custom software, digital solutions and skill training to help businesses grow.',
-    url: '/',
-    siteName: 'Devyuth',
+      "Professional website development, custom software, web applications, e-commerce solutions, and UI/UX design for growing businesses.",
     images: [
       {
-        url: '/herosectionimg.jpeg',
+        url: "/herosectionimg.jpeg",
         width: 1920,
         height: 1080,
-        alt: 'Professional digital services and skill development',
+        alt: "DevYuth Website and Software Development Services",
       },
     ],
-    locale: 'en_US',
-    type: 'website',
   },
+
   twitter: {
-    card: 'summary_large_image',
-    title: 'Web Development & Digital Solutions | Your Brand',
+    card: "summary_large_image",
+    title: "Website & Software Development Company | DevYuth",
     description:
-      'Build your business with professional digital solutions and practical skill development.',
-    images: ['/herosectionimg.jpeg'],
+      "Build your business online with professional website development and custom software solutions from DevYuth.",
+    images: ["/herosectionimg.jpeg"],
   },
+
   robots: {
     index: true,
     follow: true,
     googleBot: {
       index: true,
       follow: true,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-      'max-video-preview': -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
     },
   },
+
+  category: "technology",
 };
+
 
 const Home = () => {
   return (
     <div>
-
       <section
         className="relative min-h-screen bg-white 
         overflow-hidden flex items-center">
@@ -113,23 +141,23 @@ const Home = () => {
             </div>
 
             {/* Heading */}
-            
+
             <h1 className="font-sans text-[clamp(3.2rem,4.5vw,4.4rem)]
               font-extrabold tracking-[-0.065em]
               leading-[1.02] text-slate-950">
-              We Build
+              Website
               <br />
               <span className="relative inline-block
                 font-['Caveat'] italic font-bold
                 tracking-[-0.035em] text-emerald-600
                 text-[1.12em]">
-                Digital Experiences
+                Design & Development
                 <span className="absolute left-0 -bottom-1
                   w-full h-[5px] bg-[#F5C542]
                   rounded-full -rotate-[3deg]" />
               </span>
               <br />
-              That Grow Businesses
+              For Businesses Ready To Grow
             </h1>
 
 
@@ -137,9 +165,8 @@ const Home = () => {
             <p
               className="mt-7 max-w-[540px] text-base
               sm:text-sm leading-[1.8] text-slate-600">
-              From high-performance websites to custom software,
-              we create innovative digital solutions that help
-              businesses stand out and grow faster.
+              From professional business websites to custom web applications, we turn
+              your ideas into reliable digital experiences designed around your goals.
             </p>
 
             {/* Buttons */}
@@ -154,18 +181,14 @@ const Home = () => {
                   shadow-lg shadow-emerald-600/20
                   hover:bg-emerald-700 transition-all"
               >
-                Hire Now
-                <ArrowRight
-                  size={18}
-                  className="group-hover:translate-x-1 transition-transform"
-                />
+                Start Your Project
               </a>
 
-              <a href="/about"
+              <a href="/services"
                 className="inline-flex items-center gap-2
                 text-slate-900 font-semibold text-sm
                 hover:text-emerald-600 transition-colors">
-                Discover Our Story
+                Explore Our Services
                 <ArrowRight size={16} />
               </a>
             </div>
@@ -181,8 +204,6 @@ const Home = () => {
       <ServicesSection />
       {/* Why us section */}
       <WhyUs />
-      {/* Testimonials & Reviews */}
-      <Testimonials />
       {/* gallery */}
       <Gallery />
       {/* Technologies we use  */}

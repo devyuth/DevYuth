@@ -15,12 +15,12 @@ export function ServiceHeroLetsdicuss() {
             rel="noopener noreferrer"
             className="inline-block"
         >
-            <button className="mt-12 bg-red-600 
+            <button className="mt-12 bg-green-600 
                 hover:bg-red-700 transition px-10 
                 py-4 text-white font-medium 
                 uppercase tracking-wide"
             >
-                Let&apos;s Discuss
+                Let&apos;s Discuss Your Project
             </button>
         </a>
     );
@@ -43,7 +43,7 @@ export function ContactNowButtonOurImpact() {
                 rounded-full font-medium text-sm sm:text-base 
                 hover:bg-[#0b2b22] transition-colors shadow-md group"
             >
-                <span>Contact Now</span>
+                <span>Let&apos;s Build Your Solution</span>
                 <span 
                     className="w-9 h-9 rounded-full bg-white 
                     text-[#0F382C] flex items-center justify-center 

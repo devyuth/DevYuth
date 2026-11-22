@@ -4,61 +4,100 @@ import HeroSection from "../components/services/Herosection";
 import IndustriesSection from "../components/services/IndustriesSection";
 import PricingAndDelivery from "../components/services/Pricing";
 import ServicesHero from "../components/services/ServicesHero";
+import type { Metadata } from "next";
 
 
-export const metadata = {
-  title: "Website and Software Development Services",
+export const metadata: Metadata = {
+  title: "Website & Software Development Services | DevYuth",
 
   description:
-    "Explore professional web development, mobile app development, UI/UX design, AI automation, cloud infrastructure, and data analytics services. Build scalable digital solutions with our expert team.",
+    "Explore professional website development, custom software, web applications, e-commerce, SaaS, UI/UX design, and automation services. Build your digital presence with DevYuth.",
 
   keywords: [
+    // Core service keywords
+    "website development services",
     "web development services",
+    "website design and development",
     "website development company",
-    "custom web development",
-    "mobile app development",
-    "iOS app development",
-    "Android app development",
-    "UI UX design services",
-    "AI automation services",
+    "web development company",
+    "software development services",
+    "custom software development",
+
+    // Website development
+    "custom website development",
+    "business website development",
+    "professional website design",
+    "responsive web design services",
+    "landing page development",
+    "static website development",
+    "website redesign services",
+    "website maintenance services",
+
+    // Application development
+    "web application development",
+    "custom web application development",
+    "SaaS application development",
+    "SaaS product development",
+    "admin dashboard development",
+
+    // E-commerce
+    "ecommerce website development",
+    "online store development",
+    "ecommerce development services",
+
+    // Backend and integrations
+    "REST API development",
+    "API integration services",
+    "backend development services",
+    "database design and optimization",
+    "authentication development",
+
+    // AI and automation
+    "AI integration services",
+    "AI chatbot development",
     "business process automation",
-    "cloud infrastructure services",
-    "DevOps services",
-    "data analytics services",
-    "SaaS development",
-    "enterprise software development",
-    "software development company",
-    "custom software solutions",
-    "digital transformation services",
+    "workflow automation services",
+
+    // Optimization and support
+    "technical SEO services",
+    "website speed optimization",
+    "website performance optimization",
+    "website migration services",
+    "website deployment services",
+
+    // Technology-specific
+    "Next.js development services",
+    "React development services",
+    "TypeScript development",
   ],
 
   alternates: {
-    canonical: "https://devyuth.in/services",
+    canonical: "https://www.devyuth.in/services",
   },
 
   openGraph: {
-    title: "Professional Web, App Development & AI Services",
+    title: "Website & Software Development Services | DevYuth",
     description:
-      "Transform your business with custom web development, mobile applications, AI automation, UI/UX design, and scalable cloud solutions.",
-    url: "https://devyuth.in/services",
+      "Professional website development, custom software, e-commerce, SaaS and web application development services for businesses worldwide.",
+    url: "https://www.devyuth.in/services",
     siteName: "DevYuth",
     type: "website",
     images: [
       {
-        url: "https://devyuth.in/services",
+        url: "https://www.devyuth.in/og/services.jpg",
         width: 1200,
         height: 630,
-        alt: "Professional Software Development Services",
+        alt: "DevYuth Website and Software Development Services",
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Web Development, App Development & AI Services",
+    title: "Website & Software Development Services | DevYuth",
     description:
-      "Discover professional software development, AI automation, mobile apps, and cloud infrastructure services.",
-    images: ["https://devyuth.in/serviceHero.jpeg"],
+      "Build professional websites, custom software and web applications with DevYuth.",
+    images: ["https://www.devyuth.in/og/services.jpg"],
   },
 
   robots: {
@@ -66,6 +105,7 @@ export const metadata = {
     follow: true,
   },
 };
+
 
 const Services = () => {
   return (

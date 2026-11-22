@@ -4,11 +4,13 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { FaWhatsapp } from "react-icons/fa";
+import { FaWhatsapp, FaPhoneAlt } from "react-icons/fa";
 import { Menu as MenuIcon, X } from "lucide-react";
 import { Menu } from "./Menu";
 
-const WHATSAPP_NUMBER = "919876543210"; // Replace with your number
+// Contact Details
+const PHONE_NUMBER = "+917003996182";
+const WHATSAPP_NUMBER = "917003996182";
 const WHATSAPP_MESSAGE = "Hello! I would like to know more.";
 
 const whatsappLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
@@ -20,7 +22,7 @@ const Navbar = () => {
 
     const closeMobileMenu = () => setIsOpen(false);
 
-    // Lock background scrolling when drawer is open
+    // Lock background scrolling when mobile drawer is open
     useEffect(() => {
         const previousOverflow = document.body.style.overflow;
 
@@ -33,11 +35,11 @@ const Navbar = () => {
         };
     }, [isOpen]);
 
-    // Close drawer with Escape key
+    // Close mobile drawer with Escape key
     useEffect(() => {
         const handleKeyDown = (event: KeyboardEvent) => {
             if (event.key === "Escape") {
-                closeMobileMenu();
+                setIsOpen(false);
             }
         };
 
@@ -50,19 +52,19 @@ const Navbar = () => {
 
     return (
         <>
+            {/* Main Navbar */}
             <nav className="absolute inset-x-0 top-0 z-50 w-full">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
-                    {/* Navbar Header */}
-                    <div className="flex h-20 items-center justify-between">
+                    <div className="flex h-24 items-center justify-between gap-4">
 
                         {/* Logo */}
                         <Link
                             href="/"
-                            className="flex shrink-0 items-center"
                             aria-label="Go to homepage"
+                            className="flex shrink-0 items-center"
                         >
-                            <div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-white shadow-md">
+                            <div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-white shadow-lg">
                                 <Image
                                     src="/logo.png"
                                     alt="Logo"
@@ -75,26 +77,47 @@ const Navbar = () => {
                         </Link>
 
                         {/* Desktop Navigation */}
-                        <div className="hidden md:flex items-center">
-                            <Menu />
+                        <div className="hidden flex-1 justify-center md:flex">
+                            <Menu variant="desktop" />
                         </div>
 
                         {/* Desktop Actions */}
-                        <div className="hidden md:flex items-center gap-4">
+                        <div className="hidden shrink-0 items-center gap-3 md:flex">
 
-                            <Link
-                                href="/contact"
-                                className="rounded-lg bg-[#9933ff] px-6 py-2.5 text-sm font-semibold text-white shadow-lg shadow-purple-900/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-purple-800"
+                            {/* Call Now */}
+                            <a
+                                href={`tel:${PHONE_NUMBER}`}
+                                className="
+                                    flex items-center gap-2
+                                    rounded-full
+                                    bg-[#36B5F5]
+                                    px-5 py-3
+                                    text-sm font-semibold text-white
+                                    shadow-lg shadow-sky-500/25
+                                    transition-all duration-300
+                                    hover:-translate-y-0.5
+                                    hover:bg-sky-500
+                                "
                             >
-                                Join Us
-                            </Link>
+                                <FaPhoneAlt />
+                                Call Now
+                            </a>
 
+                            {/* WhatsApp */}
                             <a
                                 href={whatsappLink}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label="Contact us on WhatsApp"
-                                className="flex h-11 w-11 items-center justify-center rounded-lg bg-white text-2xl text-green-500 shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-green-50"
+                                className="
+                                    flex h-12 w-12 items-center justify-center
+                                    rounded-full bg-white
+                                    text-2xl text-green-500
+                                    shadow-lg
+                                    transition-all duration-300
+                                    hover:-translate-y-0.5
+                                    hover:bg-green-50
+                                "
                             >
                                 <FaWhatsapp />
                             </a>
@@ -103,25 +126,38 @@ const Navbar = () => {
                         {/* Mobile Actions */}
                         <div className="flex items-center gap-3 md:hidden">
 
+                            {/* WhatsApp */}
                             <a
                                 href={whatsappLink}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label="Contact us on WhatsApp"
-                                className="flex h-10 w-10 items-center justify-center rounded-lg bg-white text-2xl text-green-500 shadow-md"
+                                className="
+                                    flex h-10 w-10 items-center justify-center
+                                    rounded-full bg-white
+                                    text-2xl text-green-500
+                                    shadow-md
+                                "
                             >
                                 <FaWhatsapp />
                             </a>
 
+                            {/* Open Menu */}
                             <button
                                 type="button"
                                 onClick={() => setIsOpen(true)}
                                 aria-label="Open navigation menu"
                                 aria-expanded={isOpen}
                                 aria-controls="mobile-navigation"
-                                className="flex h-11 w-11 items-center justify-center rounded-lg bg-white/10 text-white backdrop-blur-md transition-colors hover:bg-white/20"
+                                className="
+                                    flex h-11 w-11 items-center justify-center
+                                    rounded-full bg-white/20
+                                    text-white backdrop-blur-md
+                                    transition-colors
+                                    hover:bg-white/30
+                                "
                             >
-                                <MenuIcon className="h-7 w-7" />
+                                <MenuIcon className="h-6 w-6" />
                             </button>
                         </div>
                     </div>
@@ -132,10 +168,15 @@ const Navbar = () => {
             <div
                 onClick={closeMobileMenu}
                 aria-hidden="true"
-                className={`fixed inset-0 z-[60] bg-black/50 backdrop-blur-sm transition-opacity duration-300 md:hidden ${isOpen
+                className={`
+                    fixed inset-0 z-[60]
+                    bg-black/50 backdrop-blur-sm
+                    transition-opacity duration-300 md:hidden
+                    ${isOpen
                         ? "pointer-events-auto opacity-100"
                         : "pointer-events-none opacity-0"
-                    }`}
+                    }
+                `}
             />
 
             {/* Mobile Drawer */}
@@ -143,9 +184,20 @@ const Navbar = () => {
                 id="mobile-navigation"
                 aria-label="Mobile Navigation"
                 aria-hidden={!isOpen}
-                className={`fixed right-0 top-0 z-[70] flex h-dvh w-[85%] max-w-sm flex-col bg-white shadow-2xl transition-transform duration-300 ease-in-out md:hidden ${isOpen ? "translate-x-0" : "translate-x-full"
-                    }`}
+                inert={!isOpen}
+                className={`
+                    fixed right-0 top-0 z-[70]
+                    flex h-dvh w-[85%] max-w-sm flex-col
+                    bg-white shadow-2xl
+                    transition-transform duration-300 ease-in-out
+                    md:hidden
+                    ${isOpen
+                        ? "translate-x-0"
+                        : "translate-x-full"
+                    }
+                `}
             >
+
                 {/* Drawer Header */}
                 <div className="flex items-center justify-between border-b border-gray-100 px-6 py-5">
 
@@ -169,40 +221,62 @@ const Navbar = () => {
                         </span>
                     </Link>
 
+                    {/* Close Button */}
                     <button
                         type="button"
                         onClick={closeMobileMenu}
                         aria-label="Close navigation menu"
-                        className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-700 transition-colors hover:bg-gray-200"
+                        className="
+                            flex h-10 w-10 items-center justify-center
+                            rounded-full bg-gray-100
+                            text-gray-700
+                            transition-colors hover:bg-gray-200
+                        "
                     >
                         <X className="h-5 w-5" />
                     </button>
                 </div>
 
-                {/* Navigation Links */}
-                <div
-                    className="flex-1 overflow-y-auto px-6 py-7"
-                    onClick={closeMobileMenu}
-                >
-                    <Menu />
+                {/* Mobile Navigation Links */}
+                <div className="flex-1 overflow-y-auto px-6 py-7">
+                    <Menu
+                        variant="mobile"
+                        onItemClick={closeMobileMenu}
+                    />
                 </div>
 
                 {/* Drawer Footer */}
                 <div className="space-y-3 border-t border-gray-100 bg-gray-50/70 p-6">
 
-                    <Link
-                        href="/contact"
+                    {/* Call Now */}
+                    <a
+                        href={`tel:${PHONE_NUMBER}`}
                         onClick={closeMobileMenu}
-                        className="flex w-full items-center justify-center rounded-lg bg-[#9933ff] px-5 py-3 text-sm font-semibold text-white shadow-md transition-all hover:bg-purple-800"
+                        className="
+                            flex w-full items-center justify-center gap-2
+                            rounded-full bg-[#36B5F5]
+                            px-5 py-3.5
+                            text-sm font-semibold text-white
+                            shadow-md transition-all
+                            hover:bg-sky-500
+                        "
                     >
-                        Join Us
-                    </Link>
+                        <FaPhoneAlt />
+                        Call Now
+                    </a>
 
+                    {/* WhatsApp */}
                     <a
                         href={whatsappLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex w-full items-center justify-center gap-2 rounded-lg border border-green-500 bg-white px-5 py-3 text-sm font-semibold text-green-600 transition-colors hover:bg-green-50"
+                        className="
+                            flex w-full items-center justify-center gap-2
+                            rounded-full border border-green-500
+                            bg-white px-5 py-3.5
+                            text-sm font-semibold text-green-600
+                            transition-colors hover:bg-green-50
+                        "
                     >
                         <FaWhatsapp className="text-xl" />
                         Chat on WhatsApp

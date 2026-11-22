@@ -30,15 +30,13 @@ export default function HeroSection() {
 
                     <div className="max-w-4xl">
 
-                        <h2 className="text-white font-black leading-[0.9] tracking-tight text-6xl md:text-7xl lg:text-8xl">
-                            Website & Digital Solutions
+                        <h2 className="text-white font-black leading-[1.1] tracking-tight text-3xl md:text-5xl lg:text-6xl">
+                            Website & Software Development Services for Growing Businesses
                         </h2>
 
-                        <p className="mt-10 text-gray-300 text-lg max-w-xl leading-relaxed">
-                            From VR, AR, mixed reality, projection mapping to
-                            interactive installations, we help you conceptualize
-                            your brands vision using future technology
-                            experiences.
+                        <p className="mt-10 text-gray-300 text-sm max-w-xl leading-relaxed">
+                            From professional business websites and e-commerce stores to custom software and web applications, 
+                            DevYuth provides digital development services designed around your business needs. 
                         </p>
 
                         

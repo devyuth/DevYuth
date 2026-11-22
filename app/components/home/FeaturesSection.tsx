@@ -7,7 +7,7 @@ import "../../styles/Features.components.css";
 const features = [
   {
     title: "SEO",
-    icon: "https://alreadysetup.com/wp-content/uploads/SEO-image1.jpg",
+    icon: "https://cdn-icons-png.flaticon.com/512/5902/5902216.png",
     description:
       "We build SEO-friendly websites that help your business rank higher and attract more organic traffic.",
     color: "#55a9f5",
@@ -15,8 +15,8 @@ const features = [
     direction: "left",
   },
   {
-    title: "Affordable",
-    icon: "https://png.pngtree.com/png-vector/20250808/ourmid/pngtree-money-pouch-isolated-on-transparent-background-png-image_16750668.webp",
+    title: "Business-Focused",
+    icon: "https://cdn-icons-png.flaticon.com/512/2199/2199928.png",
     description:
       "Get a professional, high-quality website at a budget-friendly price without compromising quality.",
     color: "#ffb52e",
@@ -25,7 +25,7 @@ const features = [
   },
   {
     title: "Responsive",
-    icon: "https://www.pngkey.com/png/detail/47-478912_transparent-mobile-phone-icon-mobile-icon-color-png.png",
+    icon: "https://cdn-icons-png.flaticon.com/512/1589/1589055.png",
     description:
       "Your website adapts beautifully to mobile phones, tablets, laptops, and desktop screens.",
     color: "#54c98a",
@@ -34,7 +34,7 @@ const features = [
   },
   {
     title: "Automation",
-    icon: "https://penneo.com/wp-content/uploads/2021/02/benefits-business-process-automation.png",
+    icon: "https://cdn-icons-png.flaticon.com/512/8188/8188078.png",
     description:
       "Automate repetitive business tasks, save time, and improve efficiency with smart solutions.",
     color: "#b68aff",
@@ -56,7 +56,7 @@ export default function FeaturesSection() {
   return (
     <section className="features-section">
       <h2 className="features-heading">
-        Features We Provide
+        What Makes Us Different
         <span className="heading-scribble" aria-hidden="true" />
       </h2>
 

@@ -247,10 +247,10 @@ export default function Footer() {
                 <ContactIcon type="mail" />
                 <div className="min-w-0">
                   <p className="break-words text-[16px] font-medium sm:text-[17px]">
-                    hello@devyuth.com
+                    devyuth1@gmail.com
                   </p>
                   <p className="mt-1 text-sm leading-6 text-white/60">
-                    We reply within 24 hours
+                    Use this gmail, our business email <span className="text-red-500 underline" >(contact@devyuth.in)</span> server is down. 
                   </p>
                 </div>
               </a>
@@ -277,10 +277,6 @@ export default function Footer() {
               Get the latest insights, tips and updates about web development
               and digital growth.
             </p>
-
-            <p className="mt-4 text-sm leading-6 text-white/50">
-              No spam. Unsubscribe anytime.
-            </p>
           </div>
         </div>
 
@@ -305,16 +301,7 @@ export default function Footer() {
               <span aria-hidden="true" className="text-white/25">|</span>
 
               <Link
-                href="/terms"
-                className="transition-colors hover:text-white"
-              >
-                Terms of Service
-              </Link>
-
-              <span aria-hidden="true" className="text-white/25">|</span>
-
-              <Link
-                href="/sitemap"
+                href="/sitemap.xml"
                 className="transition-colors hover:text-white"
               >
                 Sitemap

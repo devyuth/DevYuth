@@ -413,8 +413,8 @@ const AllServices = () => {
                         Services
                     </p>
 
-                    <h1 className="text-6xl md:text-8xl font-bold mt-6">
-                        What We Do
+                    <h1 className="text-4xl md:text-5xl font-bold mt-6">
+                        Explore Our Website & Software Services
                     </h1>
                 </div>
 

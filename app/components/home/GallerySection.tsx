@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-
+import '../../styles/why.components.css'
 const projects = [
     {
         title: "E-Commerce Platform",
@@ -25,7 +25,7 @@ const projects = [
 
 export default function Gallery() {
     return (
-        <section className="w-full bg-[#ffffff] py-24 px-6">
+        <section className="w-full bg-[#ffffff] py-24 px-6 mt-20">
             <div className="mx-auto max-w-6xl">
 
                 {/* Heading */}
@@ -34,14 +34,13 @@ export default function Gallery() {
                         Our Gallery
                     </p>
 
-                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-                        Work That Speaks For Us
+                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 Georgia">
+                        Our Website Design & Development Portfolio
                     </h2>
 
                     <p className="mx-auto mt-4 max-w-xl 
-                    text-sm md:text-base text-gray-500">
-                        Explore some of the websites, software and digital
-                        experiences we have created for businesses.
+                    text-sm md:text-xs text-gray-500">
+                        Explore our selected website development, e-commerce and custom software projects. Each project reflects our approach to thoughtful design, practical functionality and reliable digital development.
                     </p>
                 </div>
 

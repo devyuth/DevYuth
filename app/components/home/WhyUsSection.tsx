@@ -1,5 +1,6 @@
 "use client";
 
+import '../../styles/why.components.css';
 import {
   ArrowDownRight,
   ArrowRight,
@@ -11,6 +12,7 @@ import {
   Smartphone,
   Zap,
 } from "lucide-react";
+import Image from "next/image";
 
 const services = [
   "Website Development",
@@ -26,28 +28,28 @@ const reasons = [
     number: "01",
     title: "Built Around Your Goals",
     description:
-      "Solutions designed around your business, audience, and objectives.",
+      "Every project starts with understanding your business, target audience and objectives.",
     icon: Layers3,
   },
   {
     number: "02",
-    title: "Quality Development",
+    title: "Quality Driven Development",
     description:
-      "Clean code, responsive layouts, and reliable functionality.",
+      "We focus on clean code, responsive interfaces, reliable functionality and maintainable architecture..",
     icon: Code2,
   },
   {
     number: "03",
-    title: "Performance First",
+    title: "Performance & Search Visibility",
     description:
-      "Fast-loading, accessible websites built with search visibility in mind.",
+      "We consider loading speed, accessibility, mobile usability and technical SEO throughout development..",
     icon: Zap,
   },
   {
     number: "04",
-    title: "Support That Continues",
+    title: "Support Beyond Launch",
     description:
-      "Practical guidance, maintenance, and improvements after launch.",
+      "Our work doesn't end when your website goes live. We can help maintain, improve and support your digital product..",
     icon: ShieldCheck,
   },
 ];
@@ -55,23 +57,23 @@ const reasons = [
 const process = [
   {
     number: "01",
-    title: "Discover",
-    description: "We understand your needs and project goals.",
+    title: "Discovery & Planning",
+    description: "We understand your business goals, target audience, project requirements and technical needs before defining the right approach.",
   },
   {
     number: "02",
-    title: "Design",
-    description: "We plan the structure and user experience.",
+    title: "UI/UX Design",
+    description: "We create the website structure, page layouts and user interfaces to deliver a clear and intuitive user experience.",
   },
   {
     number: "03",
-    title: "Develop",
-    description: "We build and test your digital product.",
+    title: "Development & Testing",
+    description: "Our developers build your website or software, integrate the required functionality and test everything for performance and reliability.",
   },
   {
     number: "04",
-    title: "Launch",
-    description: "We launch your product and provide support.",
+    title: "Launch & Ongoing Support",
+    description: "We deploy your project, complete final checks and provide ongoing technical support and maintenance when required.",
   },
 ];
 
@@ -94,11 +96,11 @@ export default function WhyUs() {
             Why Choose Us
           </span>
 
-          <h2 className="mt-6 text-3xl font-semibold 
-            tracking-tight sm:text-4xl lg:text-5xl">
-            Good ideas deserve
-            <span className="text-[#0877bb]"> great execution.</span>
-          </h2>
+          <h3 className="mt-6 text-3xl font-semibold 
+            tracking-tight sm:text-4xl lg:text-5xl Georgia">
+            Why Choose DevYuth for Your
+            <span className="text-[#0877bb]"> Website & Software</span>
+          </h3>
 
           <p className="mx-auto mt-5 max-w-2xl text-sm 
           leading-7 text-neutral-500 sm:text-base">
@@ -130,14 +132,12 @@ export default function WhyUs() {
 
               <h3 className="max-w-lg text-3xl font-semibold 
               leading-tight tracking-tight sm:text-4xl">
-                Technology that works for your business.
+                Technology That Fits Your Business
               </h3>
 
               <p className="mt-5 max-w-lg text-sm l
               eading-7 text-neutral-500 sm:text-base">
-                From your first website to a custom digital platform,
-                we combine thoughtful design and dependable development
-                to create solutions that fit your business.
+                We choose the right tools and technologies based on your project requirements, not just trends.
               </p>
 
               <a
@@ -301,9 +301,9 @@ export default function WhyUs() {
         </div>
 
         {/* DEVELOPMENT PROCESS */}
-        <div className="mt-24 border-t border-neutral-200 pt-16 sm:mt-32 sm:pt-20">
+        <div className="mt-24 pt-16 sm:mt-32 sm:pt-20">
           <div className="mb-12 flex flex-col justify-between 
-          gap-4 sm:flex-row sm:items-end">
+            gap-4 sm:flex-row sm:items-end">
             <div>
               <p className="text-xs font-semibold uppercase 
               tracking-[0.15em] text-neutral-400">
@@ -311,15 +311,10 @@ export default function WhyUs() {
               </p>
 
               <h3 className="mt-3 text-3xl font-semibold 
-              tracking-tight sm:text-4xl">
-                From idea to launch.
+              tracking-tight sm:text-4xl Georgia">
+                Our Website & Software Development Process
               </h3>
             </div>
-
-            <p className="max-w-md text-sm 
-            leading-6 text-neutral-500">
-              A clear, collaborative process at every stage of development.
-            </p>
           </div>
 
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -345,34 +340,48 @@ export default function WhyUs() {
             ))}
           </div>
         </div>
+      </div>
+      {/* CALL TO ACTION - Full Width, 30dvh */}
+      <section className="relative mt-24 flex min-h-[30dvh] w-full items-center overflow-hidden sm:mt-28">
+        {/* Background Image via Next.js Image */}
+        <Image
+          src="/homecta.png"
+          alt="Abstract modern dark architectural background"
+          fill
+          priority={false}
+          sizes="100vw"
+          className="object-cover object-center"
+        />
 
-        {/* CALL TO ACTION */}
-        <div className="mt-24 flex flex-col gap-6 rounded-3xl 
-        border border-neutral-200 bg-white p-7 sm:mt-28 
-        sm:p-10 lg:flex-row lg:items-center lg:justify-between">
-          <div>
-            <h3 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+        {/* Dark Gradient Overlay for Text Readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/70 to-black/50" />
+
+        {/* Content Container */}
+        <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col justify-between gap-6 px-6 py-10 sm:px-10 lg:flex-row lg:items-center">
+          <div className="max-w-2xl">
+            <h3 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl lg:text-6xl Georgia">
               Have a project in mind?
             </h3>
 
-            <p className="mt-3 max-w-xl text-sm leading-6 text-neutral-500">
+            <p className="mt-2.5 text-sm leading-6 text-neutral-300 sm:text-base">
               Let&apos;s discuss your website, software, or next digital product.
             </p>
           </div>
 
           <a
-            href="/services"
-            className="inline-flex w-fit shrink-0 items-center 
-            justify-center gap-3 rounded-full bg-[#111] px-6 
-            py-3.5 text-sm font-medium text-white 
-            transition-colors duration-300 hover:bg-[#0877bb]"
+            href="https://wa.me/917003996182?text=Hi%2C%20I%20have%20a%20project%20in%20mind%20and%20would%20love%20to%20discuss%20it."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex w-fit shrink-0 items-center justify-center gap-3 rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-neutral-950 shadow-lg transition-all duration-300 hover:bg-[#0877bb] hover:text-white"
           >
             Let&apos;s talk
-            <ArrowRight size={17} />
+            <ArrowRight
+              size={17}
+              className="transition-transform duration-300 group-hover:translate-x-1"
+            />
           </a>
         </div>
-
-      </div>
+      </section>
     </section>
   );
 }
