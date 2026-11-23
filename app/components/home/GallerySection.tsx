@@ -1,24 +1,29 @@
+
 "use client";
 
 import Image from "next/image";
-import '../../styles/why.components.css'
+import "../../styles/why.components.css";
+
 const projects = [
     {
         title: "E-Commerce Platform",
         category: "E-Commerce",
         image: "/project2.png",
+        // link: "https://your-ecommerce-website.com",
         size: "small",
     },
     {
-        title: "Business Website",
+        title: "Business Website (railway)",
         category: "Web Development",
         image: "/projectbeconoverseas.png",
+        link: "https://beaconoverseas.com/",
         size: "small",
     },
     {
         title: "Custom Software",
         category: "Software Development",
         image: "/project3.png",
+        // link: "https://your-software-website.com",
         size: "large",
     },
 ];
@@ -38,16 +43,18 @@ export default function Gallery() {
                         Our Website Design & Development Portfolio
                     </h2>
 
-                    <p className="mx-auto mt-4 max-w-xl 
-                    text-sm md:text-xs text-gray-500">
-                        Explore our selected website development, e-commerce and custom software projects. Each project reflects our approach to thoughtful design, practical functionality and reliable digital development.
+                    <p className="mx-auto mt-4 max-w-xl text-sm md:text-xs text-gray-500">
+                        Explore our selected website development, e-commerce
+                        and custom software projects. Each project reflects
+                        our approach to thoughtful design, practical
+                        functionality and reliable digital development.
                     </p>
                 </div>
 
                 {/* Gallery */}
                 <div className="grid grid-cols-1 gap-5 md:grid-cols-4">
 
-                    {projects.map((project, index) => (
+                    {projects.map((project) => (
                         <div
                             key={project.title}
                             className={`
@@ -60,7 +67,9 @@ export default function Gallery() {
                             `}
                         >
 
+                            {/* Image */}
                             <div className="relative h-[260px] md:h-[300px]">
+
                                 <Image
                                     src={project.image}
                                     alt={project.title}
@@ -89,6 +98,7 @@ export default function Gallery() {
                                         group-hover:opacity-100
                                     "
                                 >
+
                                     <span className="mb-2 text-xs font-medium text-orange-300">
                                         {project.category}
                                     </span>
@@ -97,23 +107,31 @@ export default function Gallery() {
                                         {project.title}
                                     </h3>
 
-                                    {/* <button
+                                    {/* View Website Button */}
+                                    <a
+                                        href={project.link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                         className="
                                             mt-4 w-fit rounded-full
                                             bg-[#ff8b2c]
-                                            px-5 py-2
-                                            text-xs font-medium
+                                            px-6 py-2.5
+                                            text-xs font-semibold
                                             text-white
-                                            transition
+                                            transition-all
+                                            duration-300
                                             hover:bg-[#ff7620]
+                                            hover:scale-105
                                         "
                                     >
-                                        View Project
-                                    </button> */}
+                                        View Website →
+                                    </a>
+
                                 </div>
                             </div>
                         </div>
                     ))}
+
                 </div>
             </div>
         </section>
