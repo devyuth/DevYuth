@@ -3,7 +3,7 @@ import "./globals.css";
 import Navbar from "./layout/Navbar";
 import Footer from "./layout/Footer";
 import type { Metadata } from "next";
-
+import { Analytics } from "@vercel/analytics/next"
 import { Manrope, Caveat } from "next/font/google";
 
 const manrope = Manrope({
@@ -79,6 +79,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
