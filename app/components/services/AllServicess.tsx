@@ -18,370 +18,228 @@ const AllServices = () => {
     const [modalService, setModalService] = useState<Service | null>(null);
 
     // Replace with your actual WhatsApp phone number (with country code, no + or spaces, e.g., "919876543210")
-    const WHATSAPP_NUMBER = "919876543210";
+    const WHATSAPP_NUMBER = "917003996182";
 
-    const services: Service[] = [
-        {
-            id: "1",
-            title: "Custom Website Development",
-            category: "Development",
-            description:
-                "Custom-built websites tailored to your brand, business goals, and unique requirements using modern web technologies.",
-            deliverable:
-                "A custom, responsive website designed around your business needs.",
-            image:
-                "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=1200&q=80",
-            bulletPoints: [
-                "Custom website design and development",
-                "Responsive layouts for all devices",
-                "Modern frontend and backend integration",
-                "SEO-friendly structure",
-                "Easy content management options",
-            ],
-        },
-        {
-            id: "2",
-            title: "Instant Website Deployment",
-            category: "Deployment",
-            description:
-                "Get your existing website online quickly with hosting configuration, domain connection, SSL setup, and production deployment.",
-            deliverable:
-                "A live website deployed to your hosting platform with domain and SSL configuration.",
-            image:
-                "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80",
-            bulletPoints: [
-                "Fast deployment to Vercel or Netlify",
-                "Custom domain connection",
-                "SSL certificate configuration",
-                "Production environment setup",
-                "Deployment troubleshooting",
-            ],
-        },
-        {
-            id: "3",
-            title: "SEO Optimization",
-            category: "Marketing",
-            description:
-                "Improve website discoverability through technical SEO, on-page optimization, structured data, and search engine best practices.",
-            deliverable:
-                "An SEO-optimized website with technical improvements and search indexing setup.",
-            image:
-                "https://images.unsplash.com/photo-1432888622747-4eb9a8efec07?auto=format&fit=crop&w=1200&q=80",
-            bulletPoints: [
-                "Technical SEO audits",
-                "Metadata and heading optimization",
-                "XML sitemap and robots.txt setup",
-                "Schema markup implementation",
-                "Canonical URLs and indexing checks",
-            ],
-        },
-        {
-            id: "4",
-            title: "Website & Software Bug Fixing",
-            category: "Maintenance",
-            description:
-                "Diagnose and fix frontend, backend, API, database, and software errors to restore functionality and improve reliability.",
-            deliverable:
-                "A diagnosed and tested fix for agreed website or software issues.",
-            image:
-                "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
-            bulletPoints: [
-                "JavaScript and TypeScript error fixes",
-                "React and Next.js debugging",
-                "Backend and API troubleshooting",
-                "Database query error resolution",
-                "Regression testing after fixes",
-            ],
-        },
-        {
-            id: "5",
-            title: "SaaS Product Development",
-            category: "SaaS",
-            description:
-                "Build subscription-based software products with user accounts, dashboards, billing, permissions, and scalable application architecture.",
-            deliverable:
-                "A working SaaS application built around your product requirements.",
-            image:
-                "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
-            bulletPoints: [
-                "Multi-user application architecture",
-                "Subscription and billing integration",
-                "User and admin dashboards",
-                "Authentication and access control",
-                "Scalable database and API design",
-            ],
-        },
-        {
-            id: "6",
-            title: "Landing Page Development",
-            category: "Development",
-            description:
-                "Create high-converting landing pages for products, services, advertisements, launches, and lead generation campaigns.",
-            deliverable:
-                "A responsive landing page with clear calls to action and conversion tracking options.",
-            image:
-                "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=1200&q=80",
-            bulletPoints: [
-                "Conversion-focused page layouts",
-                "Responsive mobile-first design",
-                "Lead capture form integration",
-                "Fast loading and optimized assets",
-                "Analytics and event tracking options",
-            ],
-        },
-        {
-            id: "7",
-            title: "Static Website Development",
-            category: "Development",
-            description:
-                "Build lightweight websites for portfolios, personal brands, small businesses, documentation, and informational websites.",
-            deliverable:
-                "A fast, responsive static website ready for hosting.",
-            image:
-                "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
-            bulletPoints: [
-                "Clean HTML, CSS, and JavaScript",
-                "Lightweight and fast-loading pages",
-                "Responsive layouts",
-                "Basic technical SEO",
-                "Simple and affordable hosting setup",
-            ],
-        },
-        {
-            id: "8",
-            title: "AI Integration & Chatbots",
-            category: "Artificial Intelligence",
-            description:
-                "Integrate AI models into websites and applications for conversational support, content assistance, document search, and intelligent workflows.",
-            deliverable:
-                "An AI-powered feature or chatbot integrated into your application.",
-            image:
-                "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80",
-            bulletPoints: [
-                "OpenAI and Gemini API integration",
-                "AI chatbot interfaces",
-                "Knowledge-base and document search",
-                "Secure server-side API handling",
-                "Usage limits and error management",
-            ],
-        },
-        {
-            id: "9",
-            title: "Business Workflow Automation",
-            category: "Automation",
-            description:
-                "Automate repetitive business operations, notifications, data transfers, and task management with reliable integrations.",
-            deliverable:
-                "An automated workflow that reduces repetitive manual work.",
-            image:
-                "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=80",
-            bulletPoints: [
-                "Automated email notifications",
-                "CRM and spreadsheet synchronization",
-                "Scheduled jobs and background tasks",
-                "Webhook-based integrations",
-                "Workflow logging and error alerts",
-            ],
-        },
-        {
-            id: "10",
-            title: "Database Management & Optimization",
-            category: "Database",
-            description:
-                "Design, maintain, secure, and optimize application databases for reliable data storage, efficient queries, and future growth.",
-            deliverable:
-                "A well-structured, maintained, and performance-optimized database.",
-            image:
-                "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=1200&q=80",
-            bulletPoints: [
-                "PostgreSQL and MySQL management",
-                "Schema design and migrations",
-                "Slow query analysis and optimization",
-                "Backup and recovery planning",
-                "Database access and security controls",
-            ],
-        },
-        {
-            id: "11",
-            title: "Website Hosting & Configuration",
-            category: "Infrastructure",
-            description:
-                "Configure hosting environments, connect domains, set environment variables, and prepare websites for reliable production use.",
-            deliverable:
-                "A configured hosting environment with a deployed website.",
-            image:
-                "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80",
-            bulletPoints: [
-                "Vercel, Netlify, and cloud hosting setup",
-                "Domain and DNS configuration",
-                "Environment variable management",
-                "SSL and HTTPS configuration",
-                "Production build troubleshooting",
-            ],
-        },
-        {
-            id: "12",
-            title: "Website Redesign & Modernization",
-            category: "Design",
-            description:
-                "Transform outdated websites into modern digital experiences with improved usability, accessibility, responsive layouts, and maintainable code.",
-            deliverable:
-                "A redesigned website with a modern interface and improved usability.",
-            image:
-                "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=1200&q=80",
-            bulletPoints: [
-                "Modern UI and UX improvements",
-                "Mobile and tablet optimization",
-                "Improved navigation and page structure",
-                "Accessibility improvements",
-                "SEO-aware migration planning",
-            ],
-        },
-        {
-            id: "13",
-            title: "Website Speed Optimization",
-            category: "Performance",
-            description:
-                "Improve loading speed and responsiveness through code optimization, caching, image compression, and Core Web Vitals improvements.",
-            deliverable:
-                "A measured website performance improvement with before-and-after testing.",
-            image:
-                "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
-            bulletPoints: [
-                "Core Web Vitals analysis",
-                "Image and asset optimization",
-                "Code splitting and lazy loading",
-                "Caching and CDN configuration",
-                "Lighthouse performance testing",
-            ],
-        },
-        {
-            id: "14",
-            title: "REST API Development",
-            category: "Backend",
-            description:
-                "Develop secure, maintainable REST APIs that connect frontend applications, databases, external platforms, and business systems.",
-            deliverable:
-                "A documented REST API with validated endpoints and appropriate access controls.",
-            image:
-                "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80",
-            bulletPoints: [
-                "Node.js and Express API development",
-                "Request validation and error handling",
-                "Authentication and authorization",
-                "API documentation",
-                "Rate limiting and endpoint testing",
-            ],
-        },
-        {
-            id: "15",
-            title: "Third-Party API Integration",
-            category: "Integration",
-            description:
-                "Connect your website or application to external services for payments, messaging, maps, analytics, CRM, and business operations.",
-            deliverable:
-                "A tested integration connecting your application to the required external service.",
-            image:
-                "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80",
-            bulletPoints: [
-                "Payment and email API integration",
-                "CRM and marketing platform connections",
-                "Webhook configuration",
-                "API credential security",
-                "Retry logic and error monitoring",
-            ],
-        },
-        {
-            id: "16",
-            title: "Authentication & User Management",
-            category: "Security",
-            description:
-                "Implement secure account creation, login, password recovery, email verification, social sign-in, and role-based permissions.",
-            deliverable:
-                "A tested authentication system with user management and access controls.",
-            image:
-                "https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=1200&q=80",
-            bulletPoints: [
-                "Secure registration and login",
-                "Password reset and email verification",
-                "Google and GitHub sign-in options",
-                "Role-based access control",
-                "Session and authentication security",
-            ],
-        },
-        {
-            id: "17",
-            title: "E-commerce Website Development",
-            category: "E-Commerce",
-            description:
-                "Create online stores with product catalogs, cart functionality, checkout, order management, and payment integrations.",
-            deliverable:
-                "A functional online store with product management and configured checkout.",
-            image:
-                "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=1200&q=80",
-            bulletPoints: [
-                "Product and category management",
-                "Shopping cart and checkout",
-                "Payment gateway integration",
-                "Order and inventory tracking",
-                "Responsive storefront design",
-            ],
-        },
-        {
-            id: "18",
-            title: "Admin Panel & Dashboard Development",
-            category: "Dashboard",
-            description:
-                "Build custom administrative interfaces to manage users, content, orders, inventory, reports, and application settings.",
-            deliverable:
-                "A functional admin dashboard tailored to your application's workflows.",
-            image:
-                "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
-            bulletPoints: [
-                "User and role management",
-                "Data tables, filters, and search",
-                "Charts and KPI summaries",
-                "CRUD operations and form validation",
-                "Export and reporting features",
-            ],
-        },
-        {
-            id: "19",
-            title: "Website Maintenance & Technical Support",
-            category: "Support",
-            description:
-                "Keep websites and applications reliable with regular updates, troubleshooting, dependency maintenance, backups, and technical support.",
-            deliverable:
-                "An agreed maintenance plan covering updates, monitoring, and technical fixes.",
-            image:
-                "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80",
-            bulletPoints: [
-                "Bug fixes and troubleshooting",
-                "Dependency and framework updates",
-                "Backup verification",
-                "Uptime and error monitoring",
-                "Ongoing technical assistance",
-            ],
-        },
-        {
-            id: "20",
-            title: "Website Migration & Framework Upgrades",
-            category: "Infrastructure",
-            description:
-                "Move websites and applications between hosting providers or upgrade legacy projects to modern frameworks with careful testing.",
-            deliverable:
-                "A migrated or upgraded application with verified functionality and deployment.",
-            image:
-                "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80",
-            bulletPoints: [
-                "Hosting and domain migration",
-                "Framework and dependency upgrades",
-                "Database and asset transfer",
-                "Redirect mapping and SEO checks",
-                "Post-migration testing and verification",
-            ],
-        },
-    ];
+    
+const services: Service[] = [
+    {
+        id: "1",
+        title: "Custom Website Development",
+        category: "Web Development",
+        description:
+            "Build professional, responsive websites tailored to your business goals, brand identity, and customer requirements using modern web technologies.",
+        deliverable:
+            "A custom-built, responsive business website ready for production.",
+        image:
+            "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=1200&q=80",
+        bulletPoints: [
+            "Custom website design and development",
+            "Responsive mobile-first layouts",
+            "Modern frontend and backend integration",
+            "SEO-friendly website architecture",
+            "CMS and content management integration",
+        ],
+    },
+    {
+        id: "2",
+        title: "E-commerce Website Development",
+        category: "E-Commerce",
+        description:
+            "Create powerful online stores that help businesses sell products and services with seamless shopping experiences, secure payments, and efficient order management.",
+        deliverable:
+            "A fully functional online store with product management, checkout, and payment integration.",
+        image:
+            "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=1200&q=80",
+        bulletPoints: [
+            "Custom online store development",
+            "Product catalog and category management",
+            "Shopping cart and checkout functionality",
+            "Payment gateway integration",
+            "Order and inventory management",
+        ],
+    },
+    {
+        id: "3",
+        title: "Custom Web Application Development",
+        category: "Software Development",
+        description:
+            "Develop custom web applications, business portals, management systems, and interactive platforms designed to solve specific business problems and improve operational efficiency.",
+        deliverable:
+            "A custom web application built around your business workflows and functional requirements.",
+        image:
+            "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+        bulletPoints: [
+            "Custom business application development",
+            "Admin panels and management dashboards",
+            "Database architecture and integration",
+            "Authentication and user management",
+            "Scalable backend and API development",
+        ],
+    },
+    {
+        id: "4",
+        title: "SaaS Product Development",
+        category: "SaaS Development",
+        description:
+            "Build subscription-based software products with secure user accounts, interactive dashboards, billing systems, and scalable application architecture.",
+        deliverable:
+            "A functional SaaS application built around your product requirements and business model.",
+        image:
+            "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+        bulletPoints: [
+            "SaaS application architecture and development",
+            "Subscription and payment integration",
+            "User and admin dashboards",
+            "Authentication and role-based access control",
+            "Scalable database and API architecture",
+        ],
+    },
+    {
+        id: "5",
+        title: "AI Integration & Chatbot Development",
+        category: "Artificial Intelligence",
+        description:
+            "Integrate artificial intelligence into business websites and applications through intelligent chatbots, AI assistants, document search, and automated customer support solutions.",
+        deliverable:
+            "An AI-powered feature or chatbot integrated into your website or application.",
+        image:
+            "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80",
+        bulletPoints: [
+            "AI chatbot development and integration",
+            "OpenAI and Gemini API integration",
+            "AI-powered customer support assistants",
+            "Document search and knowledge-base integration",
+            "Secure AI API and usage management",
+        ],
+    },
+    {
+        id: "6",
+        title: "Business Workflow Automation",
+        category: "Business Automation",
+        description:
+            "Automate repetitive business operations, connect different software platforms, and streamline daily workflows using custom integrations and automation solutions.",
+        deliverable:
+            "A tested business automation workflow that reduces repetitive manual tasks.",
+        image:
+            "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=80",
+        bulletPoints: [
+            "Business process automation",
+            "CRM and spreadsheet integrations",
+            "Automated email and notification workflows",
+            "Webhook and third-party integrations",
+            "Scheduled tasks and background automation",
+        ],
+    },
+    {
+        id: "7",
+        title: "Landing Page Design & Development",
+        category: "Web Development",
+        description:
+            "Create attractive, responsive, and conversion-focused landing pages for business promotions, product launches, advertising campaigns, and lead generation.",
+        deliverable:
+            "A responsive landing page designed to communicate your offer and generate customer enquiries.",
+        image:
+            "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=1200&q=80",
+        bulletPoints: [
+            "Conversion-focused landing page design",
+            "Responsive mobile-first layouts",
+            "Lead capture form integration",
+            "Clear calls-to-action and page structure",
+            "Analytics and conversion tracking integration",
+        ],
+    },
+    {
+        id: "8",
+        title: "API Development & Integration",
+        category: "Backend Development",
+        description:
+            "Develop secure REST APIs and connect websites, applications, databases, payment gateways, CRM platforms, and external business systems.",
+        deliverable:
+            "A documented and tested API or third-party integration tailored to your application.",
+        image:
+            "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80",
+        bulletPoints: [
+            "Custom REST API development",
+            "Third-party API integration",
+            "Payment gateway and email integrations",
+            "API authentication and access control",
+            "Request validation and error handling",
+        ],
+    },
+    {
+        id: "9",
+        title: "Website Redesign & Modernization",
+        category: "Website Design",
+        description:
+            "Transform outdated websites into modern digital experiences with improved user interfaces, responsive layouts, better navigation, and maintainable code.",
+        deliverable:
+            "A redesigned and modernized website with improved usability and responsive functionality.",
+        image:
+            "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=1200&q=80",
+        bulletPoints: [
+            "Modern UI and UX redesign",
+            "Mobile and tablet optimization",
+            "Improved navigation and page structure",
+            "Website migration and modernization",
+            "SEO-aware redesign and redirect planning",
+        ],
+    },
+    {
+        id: "10",
+        title: "Website Speed & Performance Optimization",
+        category: "Performance Optimization",
+        description:
+            "Improve website loading speed, responsiveness, and user experience through performance analysis, asset optimization, caching, and Core Web Vitals improvements.",
+        deliverable:
+            "A performance-optimized website with before-and-after testing and measurable improvements.",
+        image:
+            "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+        bulletPoints: [
+            "Website performance and speed audits",
+            "Core Web Vitals analysis and optimization",
+            "Image and asset compression",
+            "Caching and CDN configuration",
+            "Code splitting and lazy loading",
+        ],
+    },
+    {
+        id: "11",
+        title: "Technical SEO & Website Optimization",
+        category: "Search Engine Optimization",
+        description:
+            "Improve website search engine accessibility and technical health through on-page SEO, indexing configuration, structured data, and technical optimization.",
+        deliverable:
+            "A technically optimized website with improved search engine accessibility and indexing configuration.",
+        image:
+            "https://images.unsplash.com/photo-1432888622747-4eb9a8efec07?auto=format&fit=crop&w=1200&q=80",
+        bulletPoints: [
+            "Technical SEO audits and recommendations",
+            "Title, meta description, and heading optimization",
+            "XML sitemap and robots.txt configuration",
+            "Schema markup and structured data implementation",
+            "Canonical URLs and indexing checks",
+        ],
+    },
+    {
+        id: "12",
+        title: "Website Maintenance & Technical Support",
+        category: "Maintenance & Support",
+        description:
+            "Keep your website and applications secure, updated, and reliable with ongoing maintenance, bug fixing, performance monitoring, backups, and technical assistance.",
+        deliverable:
+            "An agreed website maintenance plan covering updates, monitoring, troubleshooting, and technical support.",
+        image:
+            "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80",
+        bulletPoints: [
+            "Website and application bug fixing",
+            "Framework and dependency updates",
+            "Hosting and deployment support",
+            "Website backups and uptime monitoring",
+            "Ongoing technical troubleshooting",
+        ],
+    },
+];
+
 
     const categories = useMemo(() => {
         const set = new Set(services.map((s) => s.category));
